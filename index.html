@@ -1,27 +1,613 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юрий Моренков | Маркетинг-консультант</title>
+    <meta name="description" content="Эксперт по цифровому маркетингу с 12-летним опытом. Превращаю хаос трафика в стабильные продажи.">
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.0.0/400.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/orbitron@5.0.0/700.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rajdhani@5.0.0/300.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rajdhani@5.0.0/500.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/rajdhani@5.0.0/700.css" />
+
+    <style>
+        :root {
+            --bg-color: #050510;
+            --neon-cyan: #00f3ff;
+            --neon-magenta: #bc13fe;
+            --neon-lime: #39ff14;
+            --text-main: #e0e0e0;
+            --glass-bg: rgba(10, 10, 25, 0.75);
+            --glass-border: rgba(0, 243, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: url('https://image.qwenlm.ai/public_source/e6b7769a-bb9f-47c4-8873-9cc5aec4604c/1bf2ca6eb-7498-4cc9-8a5f-0eeeaa01e4ee.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Overlay for readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(5,5,16,0.8) 0%, rgba(5,5,16,0.95) 100%);
+            z-index: -1;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Glitch Effect Class */
+        .glitch {
+            position: relative;
+            color: var(--text-main);
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 var(--neon-magenta);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 var(--neon-cyan);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(80px, 9999px, 100px, 0); }
+            40% { clip: rect(10px, 9999px, 50px, 0); }
+            60% { clip: rect(60px, 9999px, 80px, 0); }
+            80% { clip: rect(20px, 9999px, 60px, 0); }
+            100% { clip: rect(90px, 9999px, 100px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(60px, 9999px, 70px, 0); }
+            20% { clip: rect(10px, 9999px, 20px, 0); }
+            40% { clip: rect(90px, 9999px, 100px, 0); }
+            60% { clip: rect(30px, 9999px, 40px, 0); }
+            80% { clip: rect(50px, 9999px, 60px, 0); }
+            100% { clip: rect(10px, 9999px, 20px, 0); }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--bg-color);
+            background: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            text-transform: uppercase;
+            position: relative;
+            transition: 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            text-shadow: 0 0 5px var(--neon-cyan);
+        }
+
+        .btn-magenta {
+            background: var(--neon-magenta);
+            border-color: var(--neon-magenta);
+            color: var(--bg-color);
+        }
+
+        .btn-magenta:hover {
+            color: var(--neon-magenta);
+            box-shadow: 0 0 20px var(--neon-magenta);
+            text-shadow: 0 0 5px var(--neon-magenta);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            color: var(--neon-lime);
+        }
+
+        .feature-item::before {
+            content: '>';
+            color: var(--neon-magenta);
+            font-weight: bold;
+        }
+
+        /* About Section */
+        #about {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .stat-box {
+            border: 1px solid var(--neon-magenta);
+            padding: 20px;
+            background: rgba(188, 19, 254, 0.1);
+            text-align: center;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--neon-magenta);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-lime);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .service-card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--neon-lime);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-magenta));
+            z-index: 0;
+            display: none; /* Hidden on mobile */
+        }
+
+        @media (min-width: 768px) {
+            .process-steps::before {
+                display: block;
+            }
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-color);
+            padding: 10px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-color);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(0, 243, 255, 0.05);
+            border-left: 4px solid var(--neon-magenta);
+            padding: 30px;
+            font-style: italic;
+        }
+
+        .client-name {
+            display: block;
+            margin-top: 20px;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            font-style: normal;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* CTA Section */
+        #cta {
+            text-align: center;
+            background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(5,5,16,0) 100%);
+        }
+
+        .cta-box {
+            border: 2px solid var(--neon-lime);
+            padding: 50px;
+            background: rgba(0,0,0,0.8);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            color: var(--neon-lime);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .process-steps::before {
+                display: none;
+            }
+        }
+
+        /* Animation Utility */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ru"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Rent2Dubai.ru - Аренда авто в Дубае&lt;/title&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Блог по аренде авто в Дубае готов!&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Publii + Netlify = rent2dubai.ru работает 🚀&lt;/p&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h1 class="glitch" data-text="ЮРИЙ МОРЕНКОВ">ЮРИЙ МОРЕНКОВ</h1>
+            <p>Из хаоса трафика делаю стабильные продажи и рост онлайн-бизнеса.</p>
+            
+            <div class="hero-features">
+                <div class="feature-item">12 лет опыта</div>
+                <div class="feature-item">B2B и B2C</div>
+                <div class="feature-item">Гарантия результата</div>
+            </div>
+
+            <a href="http://t.me/britek" class="btn" target="_blank">Записаться на консультацию</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Обо мне</h2>
+            <div class="about-grid fade-in">
+                <div class="about-text">
+                    <p>Я не просто настраиваю рекламу. Я выступаю как внешний директор по маркетингу для вашего бизнеса. Моя задача — найти узкие места, где вы теряете деньги, и превратить их в точки роста.</p>
+                    <p>Работал со стартапами и международными проектами. Мой подход основан на жесткой аналитике и бизнес-логике, а не на догадках.</p>
+                    <p><strong>Мое правило:</strong> прямо говорю, что не так, предлагаю план действий или возвращаю деньги за консультацию.</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">12+</div>
+                    <p>Лет реальной экспертизы<br>вместо лет работы отделов</p>
+                </div>
+            </div>
+            <div style="margin-top: 40px; text-align: center;" class="fade-in">
+                <p style="color: var(--neon-cyan); font-family: 'Orbitron';">HARD SKILLS: GA4 | GTM | Я.Метрика | SEO | Яндекс.Директ | Авито</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Чем полезен</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-icon">⚡</span>
+                    <h3>Маркетинг-консультация</h3>
+                    <p>Диагностика бизнеса, выбор ниши, подсчет юнит-экономики. Стратегия развития на стыке маркетинга и бизнеса.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">📊</span>
+                    <h3>Сквозная аналитика</h3>
+                    <p>Настройка GA4, GTM, Метрики. Вы будете видеть реальную стоимость лида и ROI, а не просто клики.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🚀</span>
+                    <h3>Запуск и Аудит Рекламы</h3>
+                    <p>Яндекс.Директ и Авито. Оптимизация бюджетов, отключение неэффективных каналов, масштабирование.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔍</span>
+                    <h3>SEO-Стратегия</h3>
+                    <p>Технический аудит и план работ по органическому продвижению для долгосрочного трафика.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2 class="section-title fade-in">Как работаю</h2>
+            <div class="process-steps">
+                <div class="step fade-in">
+                    <div class="step-number">01</div>
+                    <h3>Диагностика</h3>
+                    <p>Аудит текущей ситуации, аналитики и воронок продаж.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">02</div>
+                    <h3>План</h3>
+                    <p>Разработка пошаговой стратегии устранения ошибок и роста.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">03</div>
+                    <h3>Внедрение</h3>
+                    <p>Настройка инструментов, запуск рекламы или контроль команды.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">04</div>
+                    <h3>Результат</h3>
+                    <p>Стабильный поток заявок и прозрачная отчетность.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Кейсы и Отзывы</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"Юрий провел аудит нашей рекламы и нашел ошибку в настройках метрики, из-за которой мы сливали 30% бюджета. Окупил свою консультацию за 2 дня."</p>
+                    <span class="client-name">Алексей К., E-commerce проект</span>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Заказывали стратегию выхода на новый рынок. Четко, по делу, без воды. Получили готовый план действий для отдела маркетинга."</p>
+                    <span class="client-name">Мария В., Стартап в B2B</span>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Настроил сквозную аналитику так, что теперь я вижу прибыль с каждого ключевого слова. Это изменило подход к закупке трафика."</p>
+                    <span class="client-name">Дмитрий С., Интернет-магазин</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="container">
+            <div class="cta-box fade-in">
+                <h2>Готовы навести порядок в маркетинге?</h2>
+                <p style="margin-bottom: 30px; font-size: 1.2rem;">Запишитесь на платную консультацию. Разберем вашу ситуацию, найдем точки роста и составим план действий.</p>
+                <a href="http://t.me/britek" class="btn btn-magenta" target="_blank">Связаться в Telegram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Юрий Моренков. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Simple Matrix-like text scramble effect on hover for headings
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        
+        document.querySelectorAll('h1, h2, h3').forEach(element => {
+            element.addEventListener('mouseover', event => {
+                let iteration = 0;
+                const originalText = event.target.innerText;
+                
+                clearInterval(event.target.interval);
+
+                event.target.interval = setInterval(() => {
+                    event.target.innerText = event.target.innerText
+                        .split("")
+                        .map((letter, index) => {
+                            if(index < iteration) {
+                                return originalText[index];
+                            }
+                            return letters[Math.floor(Math.random() * 26)]
+                        })
+                        .join("");
+                    
+                    if(iteration >= originalText.length){ 
+                        clearInterval(event.target.interval);
+                    }
+                    
+                    iteration += 1 / 3;
+                }, 30);
+            });
+        });
+    </script>
 </body>
 </html>
+
