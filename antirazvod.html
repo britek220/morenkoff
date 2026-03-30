@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Агентства, Директ, фрилансеры разводят на деньги. Разберу ТВОЙ маркетинг за 60 мин или верну деньги.">
+<meta name="keywords" content="маркетинг консультант, аудит маркетинга, защита от обмана, Яндекс Директ, SEO">
+<meta property="og:title" content="Юрий Моренков — Защищаю бизнес от маркетингового обмана">
+<meta property="og:description" content="Агентства, Директ, фрилансеры разводят на деньги. Разберу ТВОЙ маркетинг за 60 мин или верну деньги.">
+<meta property="og:image" content="https://placehold.co/1200x630/080a12/6c8fff?text=Юрий+Моренков+|+Анти-развод">
+<meta property="og:type" content="website">
+<title>Юрий Моренков | Защищаю бизнес от маркетингового обмана</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236c8fff'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='12' fill='%23080a12'>YM</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep:   #080a12;
+  --bg-mid:    #0d1020;
+  --orb1:      #3b4fcf;
+  --orb2:      #7c3aed;
+  --orb3:      #0ea5e9;
+  --glass-bg:  rgba(255,255,255,0.04);
+  --glass-bg2: rgba(255,255,255,0.07);
+  --glass-border:  rgba(255,255,255,0.10);
+  --glass-border2: rgba(255,255,255,0.16);
+  --text:      rgba(255,255,255,0.55);
+  --text2:     rgba(255,255,255,0.80);
+  --white:     rgba(255,255,255,0.96);
+  --acc:       #6c8fff;
+  --acc2:      #a78bfa;
+  --green:     #4ade80;
+  --red:       #f87171;
+  --red2:      #fb923c;
+  --sans:      'Sora', sans-serif;
+  --head:      'Space Grotesk', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── ORBS ── */
+.orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.orb { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.35; }
+.orb1 { width: 55vw; height: 55vw; top: -15vw; left: -10vw; background: var(--orb1); }
+.orb2 { width: 40vw; height: 40vw; bottom: 5vw; right: -10vw; background: var(--orb2); }
+.orb3 { width: 30vw; height: 30vw; top: 40%; left: 45%; background: var(--orb3); opacity: 0.18; }
+
+/* ── GLASS ── */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.glass2 {
+  background: var(--glass-bg2);
+  border: 1px solid var(--glass-border2);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  padding: 0 5%; height: 60px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(8,10,18,0.7);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.logo {
+  font-family: var(--head); font-weight: 700; font-size: 1rem;
+  letter-spacing: 0.5px; color: var(--white); text-decoration: none;
+}
+.logo em { font-style: normal; color: var(--acc); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 400; color: var(--text);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.burger span { display: block; width: 22px; height: 1.5px; background: var(--text2); }
+
+/* ── LAYOUT ── */
+section { position: relative; z-index: 10; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+.sp { padding: 100px 0; }
+
+/* ── LABEL ── */
+.label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--acc); margin-bottom: 1.2rem;
+}
+.label::before { content: ''; display: block; width: 16px; height: 1.5px; background: var(--acc); }
+.label.red { color: var(--red); }
+.label.red::before { background: var(--red); }
+
+/* ── H2 ── */
+h2 {
+  font-family: var(--head); font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.2; color: var(--white); letter-spacing: -0.5px;
+}
+h2 em { font-style: normal; color: var(--acc); }
+h2 .danger { font-style: normal; color: var(--red); }
+
+/* ── BTN ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--head); font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.3px; text-decoration: none; padding: 0.85rem 1.7rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--acc), var(--acc2));
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(108,143,255,0.3);
+  transition: box-shadow 0.25s, transform 0.2s;
+}
+.btn:hover { box-shadow: 0 6px 36px rgba(108,143,255,0.5); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn.big { font-size: 1rem; padding: 1rem 2.2rem; }
+.btn.ghost {
+  background: var(--glass-bg2); border: 1px solid var(--glass-border2);
+  color: var(--text2); box-shadow: none; backdrop-filter: blur(12px);
+}
+.btn.ghost:hover { border-color: var(--acc); color: var(--white); box-shadow: 0 0 0 1px var(--acc); }
+.arr { transition: transform 0.2s; }
+.btn:hover .arr { transform: translateX(3px); }
+
+/* ── REVEAL ── */
+.r { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.r.v { opacity: 1; transform: none; }
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+
+@keyframes up { from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none} }
+
+/* ════════════ HERO ════════════ */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 5% 90px;
+}
+.hero-inner { max-width: 800px; }
+
+.hero-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 500; color: var(--text2);
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  background: var(--glass-bg2); border: 1px solid var(--glass-border2);
+  margin-bottom: 2rem;
+  opacity: 0; animation: up 0.6s 0.1s forwards;
+}
+.hero-chip .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--red); box-shadow: 0 0 6px var(--red);
+}
+
+h1 {
+  font-family: var(--head); font-weight: 700;
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  line-height: 1.08; letter-spacing: -1.5px;
+  color: var(--white); margin-bottom: 1.6rem;
+  opacity: 0; animation: up 0.7s 0.25s forwards;
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(95deg, var(--red), var(--red2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+h1 .acc-grad {
+  background: linear-gradient(95deg, var(--acc), var(--acc2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300; color: var(--text2); max-width: 560px;
+  margin-bottom: 2.4rem; line-height: 1.8;
+  opacity: 0; animation: up 0.7s 0.4s forwards;
+}
+
+.hero-perks {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.6rem;
+  opacity: 0; animation: up 0.7s 0.52s forwards;
+}
+.perk {
+  font-size: 0.8rem; font-weight: 400; color: var(--text2);
+  padding: 0.3rem 0.85rem; border-radius: 100px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  transition: border-color 0.2s, color 0.2s;
+}
+.perk:hover { border-color: var(--acc); color: var(--white); }
+.perk.warn {
+  color: rgba(248,113,113,0.85);
+  border-color: rgba(248,113,113,0.2);
+  background: rgba(248,113,113,0.05);
+}
+.perk.warn:hover { border-color: var(--red); color: var(--red); }
+
+.hero-actions {
+  display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center;
+  opacity: 0; animation: up 0.7s 0.65s forwards;
+}
+.hero-counter {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; font-weight: 400; color: var(--text2);
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+}
+.hero-counter strong {
+  font-family: var(--head); font-weight: 700; font-size: 1rem; color: var(--green);
+}
+
+/* ════════════ ABOUT ════════════ */
+#about { padding: 100px 0; }
+.about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 3rem; align-items: start; }
+
+.profile-glass { border-radius: 20px; padding: 2rem; overflow: hidden; position: relative; }
+.profile-glass::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(108,143,255,0.12), rgba(167,139,250,0.08));
+  pointer-events: none;
+}
+.prof-name { font-family: var(--head); font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+.prof-role { font-size: 0.72rem; font-weight: 500; color: var(--acc); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.8rem; }
+
+.stats-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem; }
+.stat-pill {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+  border-radius: 12px; padding: 0.9rem; text-align: center;
+  transition: border-color 0.25s, background 0.25s;
+}
+.stat-pill:hover { border-color: var(--acc); background: rgba(108,143,255,0.08); }
+.stat-n { font-family: var(--head); font-size: 1.7rem; font-weight: 700; color: var(--white); line-height: 1; }
+.stat-l { font-size: 0.65rem; color: var(--text); margin-top: 0.2rem; letter-spacing: 0.5px; }
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sp-tag {
+  font-size: 0.68rem; font-weight: 500; padding: 0.22rem 0.65rem; border-radius: 100px;
+  background: rgba(108,143,255,0.12); border: 1px solid rgba(108,143,255,0.2);
+  color: var(--acc); transition: background 0.2s, border-color 0.2s;
+}
+.sp-tag:hover { background: rgba(108,143,255,0.22); border-color: var(--acc); }
+
+.about-text p { color: var(--text); font-size: 0.96rem; margin-bottom: 1.2rem; font-weight: 300; }
+.about-pull {
+  font-family: var(--head); font-size: 1.05rem; font-weight: 600;
+  color: var(--text2); line-height: 1.6;
+  padding: 1.2rem 1.5rem; border-radius: 12px; margin: 1.6rem 0;
+  background: var(--glass-bg2); border: 1px solid var(--glass-border2);
+  border-left: 2px solid var(--acc);
+}
+
+/* ════════════ PROBLEM ════════════ */
+#problem { padding: 100px 0; }
+.prob-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem; }
+.prob-card {
+  border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;
+  background: rgba(248,113,113,0.04); border: 1px solid rgba(248,113,113,0.12);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.prob-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(248,113,113,0.1); border-color: rgba(248,113,113,0.28); }
+.prob-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+.prob-card h3 {
+  font-family: var(--head); font-size: 1rem; font-weight: 600;
+  color: var(--red); margin-bottom: 0.5rem;
+}
+.prob-card p { font-size: 0.86rem; color: var(--text); line-height: 1.65; font-weight: 300; }
+
+.prob-quote {
+  margin-top: 2.5rem; padding: 1.4rem 1.8rem; border-radius: 12px;
+  background: var(--glass-bg2); border: 1px solid var(--glass-border2);
+  border-left: 2px solid var(--red);
+  font-family: var(--head); font-size: 1rem; font-weight: 500;
+  color: var(--text2); text-align: center; line-height: 1.6;
+}
+.prob-quote em { font-style: normal; color: var(--red); }
+
+/* ════════════ SERVICES ════════════ */
+#services { padding: 100px 0; }
+.svc-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 3rem; }
+.svc {
+  border-radius: 16px; padding: 1.8rem; position: relative; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.svc:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); border-color: var(--glass-border2); }
+.svc.ft {
+  background: rgba(108,143,255,0.08); border: 1px solid rgba(108,143,255,0.25);
+  grid-column: span 2;
+}
+.svc.ft:hover { border-color: var(--acc); }
+.svc-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 0.2rem 0.55rem; border-radius: 100px;
+  background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
+}
+.svc-icon { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
+.svc h3 { font-family: var(--head); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+.svc.ft h3 { color: var(--acc); }
+.svc p { font-size: 0.86rem; color: var(--text); line-height: 1.65; font-weight: 300; }
+
+.guarantee-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  margin-top: 2rem; padding: 0.45rem 1rem; border-radius: 100px;
+  background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2);
+  font-size: 0.78rem; font-weight: 500; color: var(--green);
+}
+.guarantee-pill::before { content: '✓'; }
+
+/* ════════════ PROCESS ════════════ */
+#process { padding: 100px 0; }
+.proc-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 3rem; }
+.proc {
+  border-radius: 16px; padding: 2rem 1.6rem; position: relative;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.proc::after {
+  content: '→'; position: absolute; right: -0.55rem; top: 2rem;
+  color: var(--glass-border2); font-size: 1rem; z-index: 2;
+}
+.proc:last-child::after { display: none; }
+.proc:hover { transform: translateY(-2px); border-color: var(--glass-border2); }
+.proc-n {
+  font-family: var(--head); font-size: 2rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--acc), var(--acc2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; margin-bottom: 1rem;
+}
+.proc h3 { font-family: var(--head); font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+.proc p { font-size: 0.84rem; color: var(--text); line-height: 1.65; font-weight: 300; }
+
+/* ════════════ CASES ════════════ */
+#cases { padding: 100px 0; }
+.reviews { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 3rem; }
+.review {
+  border-radius: 16px; padding: 1.8rem;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.review:hover { transform: translateY(-2px); border-color: var(--glass-border2); }
+.rev-text { font-size: 0.9rem; color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 300; }
+.rev-author { display: flex; align-items: center; gap: 0.75rem; }
+.rev-av {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--acc), var(--acc2));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--head); font-weight: 700; font-size: 0.72rem; color: #fff;
+}
+.rev-name { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+.rev-meta { font-size: 0.72rem; color: var(--text); margin-top: 0.1rem; }
+.rev-result {
+  margin-top: 1rem; padding: 0.45rem 0.8rem; border-radius: 8px;
+  background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18);
+  font-size: 0.72rem; font-weight: 500; color: var(--green); letter-spacing: 0.3px;
+}
+.rev-result::before { content: '↑ '; }
+
+/* ════════════ CTA FINAL ════════════ */
+#cta-final { padding: 120px 5%; text-align: center; }
+.cta-glass {
+  border-radius: 24px; padding: 5rem 3rem;
+  max-width: 700px; margin: 0 auto;
+  position: relative; overflow: hidden;
+}
+.cta-glass::before {
+  content: ''; position: absolute; inset: 0; border-radius: 24px;
+  background: linear-gradient(135deg, rgba(108,143,255,0.1), rgba(167,139,250,0.07));
+  pointer-events: none;
+}
+.cta-glass .label { justify-content: center; }
+.cta-glass h2 { margin-bottom: 1rem; }
+.cta-glass p { color: var(--text2); font-size: 0.97rem; max-width: 480px; margin: 0 auto 2rem; font-weight: 300; }
+.guarantee {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 500; color: var(--green);
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18);
+  margin-bottom: 2rem;
+}
+.guarantee::before { content: '✓'; }
+.cta-btns { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 1.4rem 5%; border-top: 1px solid var(--glass-border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.72rem; color: var(--text); flex-wrap: wrap; gap: 0.8rem;
+}
+footer a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--white); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .prob-grid { grid-template-columns: 1fr 1fr; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc.ft { grid-column: span 1; }
+  .proc-row { grid-template-columns: 1fr 1fr; }
+  .proc::after { display: none; }
+  .reviews { grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:600px){
+  .nav-links { display: none; flex-direction: column; gap: 1rem; position: absolute; top: 60px; left: 0; right: 0; padding: 1.5rem 5%; background: rgba(8,10,18,0.97); border-bottom: 1px solid var(--glass-border); }
+  .nav-links.open { display: flex; }
+  .burger { display: flex; }
+  .prob-grid, .proc-row, .reviews { grid-template-columns: 1fr; }
+  .sp { padding: 70px 0; }
+  #cta-final { padding: 70px 5%; }
+  .cta-glass { padding: 3rem 1.5rem; }
+  h1 { letter-spacing: -1px; }
+}
+</style>
+</head>
+<body>
+
+<div class="orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<nav>
+  <a href="#hero" class="logo">YM<em>.</em>ANTI</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#problem">Проблема</a></li>
+    <li><a href="#services">Решение</a></li>
+    <li><a href="#process">Процесс</a></li>
+    <li><a href="#cases">Кейсы</a></li>
+    <li><a href="#cta-final">Контакт</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-chip">
+      <span class="dot"></span>
+      Маркетинг-консультант · Защищаю бизнес от обмана
+    </div>
+    <h1>Достало платить<br><em>за воздух?</em></h1>
+    <p class="hero-sub">Агентства, фрилансеры, сервисы разводят на деньги. Разберу ТВОЙ маркетинг за 60 минут — покажу, где сливаешь бюджет и как остановить развод. Результат или возврат денег.</p>
+    <div class="hero-perks">
+      <span class="perk warn">Агентства берут за «отчёты без прибыли»</span>
+      <span class="perk warn">Директ/2GIS навязывают «топ-позиции»</span>
+      <span class="perk warn">Чат-боты, которые никто не использует</span>
+      <span class="perk">Я покажу, что работает НА САМОМ ДЕЛЕ</span>
+    </div>
+    <div class="hero-actions">
+      <a href="http://t.me/britek" target="_blank" rel="noopener" class="btn big">Разобрать мой маркетинг <span class="arr">→</span></a>
+      <div class="hero-counter">Уже защитил <strong id="counter">0</strong>&nbsp;бизнесов</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="r">
+        <div class="profile-glass glass">
+          <div class="prof-name">Юрий Моренков</div>
+          <div class="prof-role">Anti-Fraud Marketing Consultant</div>
+          <div class="stats-2x2">
+            <div class="stat-pill"><div class="stat-n">12</div><div class="stat-l">лет опыта</div></div>
+            <div class="stat-pill"><div class="stat-n">80+</div><div class="stat-l">проектов</div></div>
+            <div class="stat-pill"><div class="stat-n">100%</div><div class="stat-l">честность</div></div>
+            <div class="stat-pill"><div class="stat-n">B2B</div><div class="stat-l">&amp; B2C</div></div>
+          </div>
+          <div class="skill-pills">
+            <span class="sp-tag">GA4</span><span class="sp-tag">Директ</span>
+            <span class="sp-tag">SEO</span><span class="sp-tag">Сквозная</span>
+            <span class="sp-tag">Метрика</span><span class="sp-tag">Аудит фрилансеров</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="label r">Кто я</div>
+        <h2 class="r d1">12 лет опыта · Видел <em>все схемы</em> развода</h2>
+        <div style="margin-top:1.8rem">
+          <p class="r d2">Меня бесит, как маркетологи доят бизнес. Я работал с агентствами, фрилансерами, платформами — знаю их трюки изнутри. Сейчас защищаю собственников от «это нормально, это рынок».</p>
+          <div class="about-pull r d3">Ты покупаешь МОЮ экспертизу против маркетингового обмана.</div>
+          <p class="r d4">За 12 лет я видел сотни схем: накрутка CTR, мусорный трафик, KPI без связи с деньгами, «SEO-работы» которые никто не делал. Я это остановлю.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROBLEM ══ -->
+<section id="problem">
+  <div class="wrap">
+    <div class="label red r">Твоя боль</div>
+    <h2 class="r d1">Кто тебя <span class="danger">обманывает?</span></h2>
+    <div class="prob-grid">
+      <div class="prob-card r d1">
+        <span class="prob-icon">💸</span>
+        <h3>Агентства</h3>
+        <p>«Контекст под ключ» — ежемесячные отчёты без единого лида. Красивые графики, ноль продаж. Берут деньги и пропадают.</p>
+      </div>
+      <div class="prob-card r d2">
+        <span class="prob-icon">🚫</span>
+        <h3>Платформы</h3>
+        <p>Директ и 2GIS навязывают VIP-пакеты и «приоритетное размещение». Деньги берут — реального результата нет.</p>
+      </div>
+      <div class="prob-card r d3">
+        <span class="prob-icon">🤖</span>
+        <h3>Сервисы</h3>
+        <p>Авто-воронки, боты, CRM «под ключ» — берут деньги, не настраивают, исчезают через месяц.</p>
+      </div>
+    </div>
+    <div class="prob-quote r d4">
+      Их цель — <em>твой кошелёк</em>. Я научу видеть развод.
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+  <div class="wrap">
+    <div class="label r">Моё решение</div>
+    <h2 class="r d1">Консультация <em>«Анти-развод»</em></h2>
+    <div class="svc-grid">
+      <div class="svc ft glass r d1">
+        <span class="svc-badge">Ключевое</span>
+        <span class="svc-icon">🔎</span>
+        <h3>Аудит твоих отчётов</h3>
+        <p>Разбираю твои данные — GA4, Метрика, рекламные кабинеты. Показываю, где сливается бюджет и что нужно немедленно отключить.</p>
+      </div>
+      <div class="svc glass r d2">
+        <span class="svc-icon">🛠</span>
+        <h3>Нужные инструменты</h3>
+        <p>Какие сервисы реально работают для твоего бизнеса, а какие — пустая трата денег и ресурсов.</p>
+      </div>
+      <div class="svc glass r d3">
+        <span class="svc-icon">📐</span>
+        <h3>Навыки контроля</h3>
+        <p>Читать метрики самому. Проверять подрядчиков. Не давать себя дурить — никогда больше.</p>
+      </div>
+      <div class="svc glass r d4">
+        <span class="svc-icon">🎯</span>
+        <h3>Стратегия роста</h3>
+        <p>Конкретный план: что запустить для реальных лидов. Без воды, без «подождите ещё месяц».</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem" class="r d5">
+      <span class="guarantee-pill">Не покажу результат — верну деньги. Без вопросов.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section id="process">
+  <div class="wrap">
+    <div class="label r">Как это работает</div>
+    <h2 class="r d1">4 шага к <em>защите бизнеса</em></h2>
+    <div class="proc-row">
+      <div class="proc glass r d1">
+        <div class="proc-n">01</div>
+        <h3>Диагностика</h3>
+        <p>Твои отчёты, рекламные кабинеты и текущие цели бизнеса.</p>
+      </div>
+      <div class="proc glass r d2">
+        <div class="proc-n">02</div>
+        <h3>Разбор</h3>
+        <p>Где обман, где воздух, где реальные деньги.</p>
+      </div>
+      <div class="proc glass r d3">
+        <div class="proc-n">03</div>
+        <h3>План</h3>
+        <p>Что оставить, что запустить, что отключить прямо сейчас.</p>
+      </div>
+      <div class="proc glass r d4">
+        <div class="proc-n">04</div>
+        <h3>Контроль</h3>
+        <p>Как проверять подрядчиков самостоятельно и не попасться снова.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CASES ══ -->
+<section id="cases">
+  <div class="wrap">
+    <div class="label r">Результаты</div>
+    <h2 class="r d1">Уже <em>защитил бизнесы</em></h2>
+    <div class="reviews">
+      <div class="review glass r d1">
+        <p class="rev-text">Агентство обходилось в 150к/мес. Юрий вскрыл: 60% трафика — мусор. Отключили халтуру. Стоимость лида упала почти вдвое за первый же месяц.</p>
+        <div class="rev-author">
+          <div class="rev-av">АК</div>
+          <div><div class="rev-name">Алексей К.</div><div class="rev-meta">E-commerce · Москва</div></div>
+        </div>
+        <div class="rev-result">CPL снижен на 45%</div>
+      </div>
+      <div class="review glass r d2">
+        <p class="rev-text">2GIS навязал «Премиум». Юрий доказал: позиции не влияли на звонки. Отказались от пакета. Экономия — 80к в год без потери клиентов.</p>
+        <div class="rev-author">
+          <div class="rev-av">МВ</div>
+          <div><div class="rev-name">Марина В.</div><div class="rev-meta">Локальный бизнес</div></div>
+        </div>
+        <div class="rev-result">Сэкономлено 80к/год</div>
+      </div>
+      <div class="review glass r d3">
+        <p class="rev-text">SEO-фрилансер гнал трафик без конверсий. Юрий нашёл причину, поменяли посадочные страницы. Количество лидов выросло в три раза за 6 недель.</p>
+        <div class="rev-author">
+          <div class="rev-av">ДС</div>
+          <div><div class="rev-name">Дмитрий С.</div><div class="rev-meta">B2B SaaS</div></div>
+        </div>
+        <div class="rev-result">+3x лидов за 6 недель</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section id="cta-final">
+  <div class="cta-glass glass">
+    <div class="label r">Финальный шаг</div>
+    <h2 class="r d1">Хватит даваться <span class="danger">обману.</span></h2>
+    <p class="r d2">Платишь за маркетинг без заявок? Ты уже жертва. 60 минут = защита от развода на миллионы.</p>
+    <div class="guarantee r d3">Результат или возврат денег</div>
+    <div class="cta-btns r d4">
+      <a href="http://t.me/britek" target="_blank" rel="noopener" class="btn big">Записаться в Telegram <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Юрий Моренков · Anti-Fraud Marketing Consultant</span>
+  <a href="http://t.me/britek" target="_blank" rel="noopener">t.me/britek</a>
+  <span>morenkoff.ru</span>
+</footer>
+
+<script>
+  /* burger */
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('navLinks');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+  /* scroll reveal */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+  /* counter 0 → 47 */
+  const counterEl = document.getElementById('counter');
+  function animateCounter(target, duration) {
+    let start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      counterEl.textContent = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else counterEl.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  const heroObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { animateCounter(47, 1600); heroObs.disconnect(); }
+  }, { threshold: 0.3 });
+  heroObs.observe(document.getElementById('hero'));
+</script>
+</body>
+</html>
