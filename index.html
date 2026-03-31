@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
 <meta name="description" content="Юрий Моренков — маркетинг-консультант с 12-летним опытом. Из хаоса трафика — к стабильным продажам. SEO, аналитика, реклама, стратегия.">
 <meta name="keywords" content="маркетинг консультант, цифровой маркетинг, SEO, аналитика, Яндекс.Директ, Юрий Моренков">
 <meta property="og:title" content="Юрий Моренков — Маркетинг-консультант">
@@ -43,31 +44,16 @@ body {
   overflow-x: hidden;
 }
 
-/* ── AMBIENT ORBS (fixed, blurred colour blobs) ── */
-.orbs {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-}
-.orb {
-  position: absolute; border-radius: 50%;
-  filter: blur(110px); opacity: 0.35;
-}
-.orb1 { width: 55vw; height: 55vw; top: -15vw; left: -10vw; background: var(--orb1); }
-.orb2 { width: 40vw; height: 40vw; bottom: 5vw;  right: -10vw; background: var(--orb2); }
+/* ── AMBIENT ORBS ── */
+.orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.orb  { position: absolute; border-radius: 50%; filter: blur(110px); opacity: 0.35; }
+.orb1 { width: 55vw; height: 55vw; top: -15vw;  left: -10vw; background: var(--orb1); }
+.orb2 { width: 40vw; height: 40vw; bottom: 5vw; right: -10vw; background: var(--orb2); }
 .orb3 { width: 30vw; height: 30vw; top: 40%; left: 45%; background: var(--orb3); opacity: 0.18; }
 
-/* ── GLASS UTIL ── */
-.glass {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-.glass2 {
-  background: var(--glass-bg2);
-  border: 1px solid var(--glass-border2);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-}
+/* ── GLASS ── */
+.glass  { background: var(--glass-bg);  border: 1px solid var(--glass-border);  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.glass2 { background: var(--glass-bg2); border: 1px solid var(--glass-border2); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); }
 
 /* ── NAV ── */
 nav {
@@ -76,19 +62,12 @@ nav {
   display: flex; justify-content: space-between; align-items: center;
   background: rgba(8,10,18,0.7);
   border-bottom: 1px solid var(--glass-border);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
 }
-.logo {
-  font-family: var(--head); font-weight: 700; font-size: 1rem;
-  letter-spacing: 0.5px; color: var(--white); text-decoration: none;
-}
+.logo { font-family: var(--head); font-weight: 700; font-size: 1rem; letter-spacing: 0.5px; color: var(--white); text-decoration: none; }
 .logo em { font-style: normal; color: var(--acc); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.82rem; font-weight: 400; color: var(--text);
-  text-decoration: none; transition: color 0.2s;
-}
+.nav-links a { font-size: 0.82rem; font-weight: 400; color: var(--text); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--white); }
 .burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .burger span { display: block; width: 22px; height: 1.5px; background: var(--text2); }
@@ -96,7 +75,7 @@ nav {
 /* ── LAYOUT ── */
 section { position: relative; z-index: 10; }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
-.sp { padding: 100px 0; }
+.sp   { padding: 100px 0; }
 
 /* ── LABEL ── */
 .label {
@@ -106,7 +85,7 @@ section { position: relative; z-index: 10; }
 }
 .label::before { content: ''; display: block; width: 16px; height: 1.5px; background: var(--acc); }
 
-/* ── HEADINGS ── */
+/* ── H2 ── */
 h2 {
   font-family: var(--head); font-weight: 700;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -121,17 +100,14 @@ h2 em { font-style: normal; color: var(--acc); }
   letter-spacing: 0.3px; text-decoration: none; padding: 0.85rem 1.7rem;
   border-radius: 10px;
   background: linear-gradient(135deg, var(--acc), var(--acc2));
-  color: #fff;
-  box-shadow: 0 4px 24px rgba(108,143,255,0.3);
+  color: #fff; box-shadow: 0 4px 24px rgba(108,143,255,0.3);
   transition: box-shadow 0.25s, transform 0.2s, opacity 0.2s;
 }
 .btn:hover { box-shadow: 0 6px 36px rgba(108,143,255,0.5); transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 .btn.ghost {
-  background: var(--glass-bg2);
-  border: 1px solid var(--glass-border2);
-  color: var(--text2); box-shadow: none;
-  backdrop-filter: blur(12px);
+  background: var(--glass-bg2); border: 1px solid var(--glass-border2);
+  color: var(--text2); box-shadow: none; backdrop-filter: blur(12px);
 }
 .btn.ghost:hover { border-color: var(--acc); color: var(--white); box-shadow: 0 0 0 1px var(--acc); }
 .arr { transition: transform 0.2s; }
@@ -186,19 +162,13 @@ h1 em {
 /* ── ABOUT ── */
 #about { padding: 100px 0; }
 .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 3rem; align-items: start; }
-.profile-glass {
-  border-radius: 20px; padding: 2rem; overflow: hidden; position: relative;
-}
+.profile-glass { border-radius: 20px; padding: 2rem; overflow: hidden; position: relative; }
 .profile-glass::before {
-  content: '';
-  position: absolute; inset: 0; border-radius: 20px;
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
   background: linear-gradient(135deg, rgba(108,143,255,0.12), rgba(167,139,250,0.08));
   pointer-events: none;
 }
-.prof-name {
-  font-family: var(--head); font-size: 1.25rem; font-weight: 700;
-  color: var(--white); margin-bottom: 0.2rem;
-}
+.prof-name { font-family: var(--head); font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
 .prof-role { font-size: 0.75rem; font-weight: 500; color: var(--acc); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.8rem; }
 .stats-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 1.5rem; }
 .stat-pill {
@@ -211,14 +181,11 @@ h1 em {
 .stat-l { font-size: 0.65rem; color: var(--text); margin-top: 0.2rem; letter-spacing: 0.5px; }
 .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .sp-tag {
-  font-size: 0.68rem; font-weight: 500;
-  padding: 0.22rem 0.65rem; border-radius: 100px;
+  font-size: 0.68rem; font-weight: 500; padding: 0.22rem 0.65rem; border-radius: 100px;
   background: rgba(108,143,255,0.12); border: 1px solid rgba(108,143,255,0.2);
-  color: var(--acc);
-  transition: background 0.2s, border-color 0.2s;
+  color: var(--acc); transition: background 0.2s, border-color 0.2s;
 }
 .sp-tag:hover { background: rgba(108,143,255,0.22); border-color: var(--acc); }
-
 .about-text p { color: var(--text); font-size: 0.96rem; margin-bottom: 1.2rem; font-weight: 300; }
 .about-pull {
   font-family: var(--head); font-size: 1.05rem; font-weight: 600;
@@ -226,6 +193,25 @@ h1 em {
   padding: 1.2rem 1.5rem; border-radius: 12px; margin: 1.6rem 0;
   background: var(--glass-bg2); border: 1px solid var(--glass-border2);
   border-left: 2px solid var(--acc);
+}
+
+/* ── AI-TECH (новый блок) ── */
+#ai-tech { padding: 100px 0; }
+
+/* green-акцентная карточка в #ai-tech */
+#ai-tech .svc.green-acc {
+  border-color: rgba(74,222,128,0.2);
+}
+#ai-tech .svc.green-acc:hover {
+  border-color: var(--green);
+  box-shadow: 0 12px 40px rgba(74,222,128,0.12);
+}
+#ai-tech .ai-footer {
+  margin-top: 2.5rem; text-align: center;
+}
+#ai-tech .ai-footer p {
+  font-size: 1rem; color: var(--text2); font-weight: 300;
+  max-width: 700px; margin: 0 auto; line-height: 1.75;
 }
 
 /* ── SERVICES ── */
@@ -245,26 +231,15 @@ h1 em {
   background: linear-gradient(135deg, var(--acc), var(--acc2)); color: #fff;
 }
 .svc-icon { font-size: 1.6rem; margin-bottom: 1rem; display: block; }
-.svc h3 {
-  font-family: var(--head); font-size: 1rem; font-weight: 600;
-  color: var(--white); margin-bottom: 0.5rem;
-}
+.svc h3 { font-family: var(--head); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
 .svc.ft h3 { color: var(--acc); }
 .svc p { font-size: 0.86rem; color: var(--text); line-height: 1.65; font-weight: 300; }
 
 /* ── PROCESS ── */
 #process { padding: 100px 0; }
 .proc-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
-.proc {
-  border-radius: 16px; padding: 2rem 1.6rem;
-  transition: transform 0.25s, border-color 0.25s;
-  position: relative;
-}
-.proc::after {
-  content: '→';
-  position: absolute; right: -0.55rem; top: 2rem;
-  color: var(--glass-border2); font-size: 1rem; z-index: 2;
-}
+.proc { border-radius: 16px; padding: 2rem 1.6rem; position: relative; transition: transform 0.25s, border-color 0.25s; }
+.proc::after { content: '→'; position: absolute; right: -0.55rem; top: 2rem; color: var(--glass-border2); font-size: 1rem; z-index: 2; }
 .proc:last-child::after { display: none; }
 .proc:hover { transform: translateY(-2px); border-color: var(--glass-border2); }
 .proc-n {
@@ -273,19 +248,13 @@ h1 em {
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   line-height: 1; margin-bottom: 1rem;
 }
-.proc h3 {
-  font-family: var(--head); font-size: 0.9rem; font-weight: 600;
-  color: var(--white); margin-bottom: 0.5rem;
-}
+.proc h3 { font-family: var(--head); font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
 .proc p { font-size: 0.84rem; color: var(--text); line-height: 1.65; font-weight: 300; }
 
 /* ── CASES ── */
 #cases { padding: 100px 0; }
 .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
-.review {
-  border-radius: 16px; padding: 1.8rem;
-  transition: transform 0.25s, border-color 0.25s;
-}
+.review { border-radius: 16px; padding: 1.8rem; transition: transform 0.25s, border-color 0.25s; }
 .review:hover { transform: translateY(-2px); border-color: var(--glass-border2); }
 .rev-text { font-size: 0.9rem; color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; font-weight: 300; }
 .rev-author { display: flex; align-items: center; gap: 0.75rem; }
@@ -308,14 +277,12 @@ h1 em {
 #cta-final { padding: 120px 5%; text-align: center; }
 .cta-glass {
   border-radius: 24px; padding: 5rem 3rem;
-  max-width: 700px; margin: 0 auto;
-  position: relative; overflow: hidden;
+  max-width: 700px; margin: 0 auto; position: relative; overflow: hidden;
 }
 .cta-glass::before {
-  content: '';
-  position: absolute; inset: 0;
+  content: ''; position: absolute; inset: 0; border-radius: 24px;
   background: linear-gradient(135deg, rgba(108,143,255,0.1), rgba(167,139,250,0.07));
-  border-radius: 24px; pointer-events: none;
+  pointer-events: none;
 }
 .cta-glass .label { justify-content: center; }
 .cta-glass h2 { margin-bottom: 1rem; }
@@ -343,33 +310,32 @@ footer a:hover { color: var(--white); }
 /* ── REVEAL ── */
 .r { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .r.v { opacity: 1; transform: none; }
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
+.d4{transition-delay:.32s} .d5{transition-delay:.40s} .d6{transition-delay:.48s}
 
 @keyframes up { from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none} }
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .proc-row{grid-template-columns:1fr 1fr}
-  .proc::after{display:none}
-  .reviews{grid-template-columns:1fr 1fr}
+  .about-grid  { grid-template-columns: 1fr; gap: 2rem; }
+  .svc-grid    { grid-template-columns: 1fr 1fr; }
+  .proc-row    { grid-template-columns: 1fr 1fr; }
+  .proc::after { display: none; }
+  .reviews     { grid-template-columns: 1fr 1fr; }
 }
 @media(max-width:600px){
-  .nav-links{display:none;flex-direction:column;gap:1rem;position:absolute;top:60px;left:0;right:0;padding:1.5rem 5%;background:rgba(8,10,18,0.97);border-bottom:1px solid var(--glass-border)}
-  .nav-links.open{display:flex}
-  .burger{display:flex}
-  .svc-grid,.proc-row,.reviews{grid-template-columns:1fr}
-  .sp,.section-pad{padding:70px 0}
-  #cta-final{padding:70px 5%}
-  .cta-glass{padding:3rem 1.5rem}
+  .nav-links { display: none; flex-direction: column; gap: 1rem; position: absolute; top: 60px; left: 0; right: 0; padding: 1.5rem 5%; background: rgba(8,10,18,0.97); border-bottom: 1px solid var(--glass-border); }
+  .nav-links.open { display: flex; }
+  .burger { display: flex; }
+  .svc-grid, .proc-row, .reviews { grid-template-columns: 1fr; }
+  .sp, .section-pad { padding: 70px 0; }
+  #cta-final { padding: 70px 5%; }
+  .cta-glass { padding: 3rem 1.5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- ambient orbs -->
 <div class="orbs">
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
@@ -380,6 +346,7 @@ footer a:hover { color: var(--white); }
   <a href="#hero" class="logo">YM<em>.</em>MKTG</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">Обо мне</a></li>
+    <li><a href="#ai-tech">ИИ технологии</a></li>
     <li><a href="#services">Услуги</a></li>
     <li><a href="#process">Процесс</a></li>
     <li><a href="#cases">Кейсы</a></li>
@@ -440,6 +407,40 @@ footer a:hover { color: var(--white); }
           <p class="r d4">Моя задача — дать вам ясность: что происходит в вашем маркетинге, почему не растут продажи и конкретный план действий. Без воды, без бесполезных презентаций.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AI-TECH (новый блок) ══ -->
+<section id="ai-tech">
+  <div class="wrap">
+    <div class="label r d1">Современные технологии</div>
+    <h2 class="r d2">Нейросети дают <em>преимущество ×3</em></h2>
+    <div class="svc-grid" style="margin-top:3rem">
+      <div class="svc ft glass r d1">
+        <span class="svc-badge">Контент ×10</span>
+        <span class="svc-icon">🤖</span>
+        <h3>Нейросети для контента</h3>
+        <p>Статьи, посты, лендинги за часы вместо недель. SEO-оптимизированный текст с ИИ — экономия 70% на копирайтерах.</p>
+      </div>
+      <div class="svc glass r d2">
+        <span class="svc-icon">⚡</span>
+        <h3>Автоматизация рекламы</h3>
+        <p>ИИ анализирует кампании, предлагает A/B тесты, оптимизирует ставки. Результаты быстрее, CPL ниже на 25–40%.</p>
+      </div>
+      <div class="svc glass r d3">
+        <span class="svc-icon">💬</span>
+        <h3>Умные чат-боты</h3>
+        <p>ChatGPT-подобные боты отвечают клиентам 24/7. Скрипты для записи и консультаций — без оператора, конверсия +35%.</p>
+      </div>
+      <div class="svc glass green-acc r d4">
+        <span class="svc-icon">📈</span>
+        <h3>Аналитика на ИИ</h3>
+        <p>Предиктивная аналитика: прогноз лидов, выявление аномалий. Ты видишь будущее продаж за неделю, а не за месяц.</p>
+      </div>
+    </div>
+    <div class="ai-footer r d5">
+      <p>Клиент экономит время и деньги, получает результаты быстрее конкурентов. Мои нейросети + 12 лет опыта = твоё преимущество на рынке.</p>
     </div>
   </div>
 </section>
@@ -563,7 +564,7 @@ footer a:hover { color: var(--white); }
 </section>
 
 <footer>
-  <span>© 2025 Юрий Моренков · Маркетинг-консультант</span>
+  <span>© 2026 Юрий Моренков · Маркетинг-консультант</span>
   <a href="http://t.me/britek" target="_blank" rel="noopener">t.me/britek</a>
   <span>Все права защищены</span>
 </footer>
