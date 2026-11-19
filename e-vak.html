@@ -192,8 +192,22 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media print{.sticky,.hd{display:none}body{padding:0;background:#fff;color:#000}}
 </style>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114379424', 'ym');
+
+    ym(114379424, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
+<noscript><div><img src="https://mc.yandex.ru/watch/114379424" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
 <header class="hd">
   <div class="wrap hd__row">
@@ -333,17 +347,4 @@ p{margin:0}
 </div>
 
 <script>
-/* Цели Метрики: имя цели должно существовать в счётчике 93417048.
-   Существующие: phone_click, phone_click_footer, mobile_menu_click.
-   Новые (создать в Метрике): phone_click_hero, phone_click_final, phone_click_sticky. */
-(function () {
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest('a[href^="tel:"]');
-    if (!link || typeof window.ym !== 'function') return;
-    var goal = link.getAttribute('data-goal') || 'phone_click';
-    try { window.ym(93417048, 'reachGoal', goal); } catch (_) {}
-  });
-})();
-</script>
-</body>
-</html>
+/* Цели Метрики
