@@ -2,6 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
+<!-- Gudok: статический коллтрекинг, проект 77of7udlf3 -->
+<script type="text/javascript">(function(window,document,n,project_ids){window.GudokData=n;if(typeof project_ids !== "object"){project_ids = [project_ids]};window[n] = {};window[n]["projects"]=project_ids;config_load(project_ids.join(','));function config_load(cId){var a=document.getElementsByTagName("script")[0],s=document.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},cMrs='';s.async=true;if(document.location.search&&document.location.search.indexOf('?gudok_check=')===0)cMrs+=document.location.search.replace('?','&');s.src="//mod.gudok.tel/script.js?sid="+cId+cMrs;if(window.opera == "[object Opera]"){document.addEventListener("DOMContentLoaded", i, false)}else{i()}}})(window, document, "gd", "77of7udlf3");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B1220">
 <title>Эвакуатор в Воронеже — подача 15–20 минут, круглосуточно</title>
@@ -347,4 +349,18 @@ p{margin:0}
 </div>
 
 <script>
-/* Цели Метрики
+/* Цели Метрики: имя цели должно существовать в счётчике METRIKA_ID.
+   Существующие на e-vak.ru (93417048): phone_click, phone_click_footer, mobile_menu_click.
+   Новые (создать в счётчике 114379424): phone_click_hero, phone_click_final, phone_click_sticky. */
+(function () {
+  var METRIKA_ID = 114379424;
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (!link || typeof window.ym !== 'function') return;
+    var goal = link.getAttribute('data-goal') || 'phone_click';
+    try { window.ym(METRIKA_ID, 'reachGoal', goal); } catch (_) {}
+  });
+})();
+</script>
+</body>
+</html>
