@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<title>Эвакуатор в Воронеже — подача 15–20 минут, круглосуточно</title>
+<meta name="description" content="Круглосуточный эвакуатор в Воронеже и области, на М-4 «Дон». Фиксированная цена по городу — от 3 000 ₽. Позвоните: 8 (903) 653-16-53.">
+<style>
+/* ------------------------------------------------------------------ токены */
+:root{
+  --bg:#0B1220;
+  --panel:#131C2E;
+  --panel-2:#182338;
+  --text:#F4F7FB;
+  --muted:#A9B4C6;
+  --accent:#FFB020;
+  --accent-dark:#E59400;
+  --line:rgba(255,255,255,.12);
+  --radius:16px;
+  --shadow:0 18px 40px rgba(0,0,0,.35);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  padding-bottom:88px; /* место под нижнюю панель, чтобы она не перекрывала контент */
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{margin:0;line-height:1.12;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 16px}
+.section{padding:32px 0}
+.section + .section{border-top:1px solid var(--line)}
+.h2{font-size:clamp(22px,5.4vw,34px);font-weight:800}
+.sec__sub{color:var(--muted);margin-top:8px;font-size:15px}
+.note{color:var(--muted);font-size:14px;margin-top:16px}
+
+/* ------------------------------------------------------------------ шапка */
+.hd{
+  position:sticky;top:0;z-index:20;
+  background:rgba(11,18,32,.92);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.hd__row{display:flex;align-items:center;justify-content:space-between;gap:12px;height:56px}
+.logo{display:flex;align-items:baseline;gap:2px;font-weight:800;font-size:19px;text-decoration:none;letter-spacing:-.03em}
+.logo b{color:var(--accent)}
+.logo span{font-weight:500;color:var(--muted);font-size:13px;margin-left:8px;letter-spacing:0}
+.hd__badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:600;color:var(--text);
+  border:1px solid var(--line);border-radius:999px;padding:5px 10px;
+}
+.hd__badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#37D67A;box-shadow:0 0 0 3px rgba(55,214,122,.18)}
+
+/* ---------------------------------------------------------------- 1-й экран */
+.hero{
+  padding:24px 0 28px;
+  background:
+    radial-gradient(120% 90% at 50% 0,rgba(255,176,32,.10),transparent 60%),
+    linear-gradient(180deg,#0E1728 0%,var(--bg) 100%);
+}
+.hero__kicker{margin:0 0 10px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(26px,7.9vw,52px);font-weight:800;max-width:16em;text-wrap:balance}
+.hero__lead{margin-top:12px;color:var(--muted);font-size:clamp(15px,4.2vw,18px);max-width:34em}
+.hero__lead b{color:var(--text);font-weight:600}
+
+/* Номер — информация: он крупнее всего, но белый.
+   Оранжевый на экране один — кнопка ниже. */
+.phone{
+  display:inline-block;margin-top:20px;
+  font-size:clamp(30px,9.4vw,44px);font-weight:800;letter-spacing:-.02em;
+  color:var(--text);text-decoration:none;line-height:1.15;
+  border-bottom:3px solid rgba(255,255,255,.22);
+}
+.phone:hover{border-bottom-color:rgba(255,255,255,.55)}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  min-height:56px;padding:14px 22px;border-radius:14px;
+  font-size:18px;font-weight:800;text-decoration:none;letter-spacing:.01em;
+  transition:transform .06s ease,background .15s ease;
+}
+.btn--call{margin-top:14px;width:100%;background:var(--accent);color:#0B1220;box-shadow:var(--shadow)}
+.btn--call:hover{background:var(--accent-dark)}
+.btn--call:active{transform:translateY(1px)}
+
+.hero__micro{margin-top:12px;font-size:14px;color:var(--muted);max-width:32em}
+.hero__proof{margin-top:14px;font-size:13px;color:var(--muted)}
+.hero__proof b{color:var(--text)}
+.hero__proof .stars{color:var(--accent);letter-spacing:.1em;margin-right:4px}
+
+@media (min-width:900px){
+  .hero{padding:56px 0 64px}
+  .btn--call{display:inline-flex;width:auto;min-width:320px;margin:18px 0 0 28px;vertical-align:middle}
+}
+
+/* -------------------------------------------------------------------- цены */
+.cards{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.card{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+}
+.card span{color:var(--text);font-size:15px}
+.card small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.card b{font-size:22px;font-weight:800;white-space:nowrap;letter-spacing:-.01em}
+
+@media (min-width:760px){
+  .cards{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+
+/* -------------------------------------------------------------------- зоны */
+.chips{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{
+  display:inline-flex;align-items:center;min-height:40px;padding:0 14px;
+  border:1px solid var(--line);border-radius:999px;background:var(--panel-2);
+  font-size:14.5px;color:var(--text);
+}
+.chips .is-main{background:rgba(255,176,32,.14);border-color:rgba(255,176,32,.45);color:var(--accent);font-weight:600}
+
+/* ------------------------------------------------------------------- шаги */
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{
+  counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;
+  padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+}
+.steps li::before{
+  content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:12px;
+  background:rgba(255,176,32,.14);color:var(--accent);font-weight:800;font-size:18px;
+}
+.steps b{display:block;font-size:16px}
+.steps span{color:var(--muted);font-size:14px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+
+/* -------------------------------------------------------------------- FAQ */
+.faq{margin-top:18px;display:grid;gap:8px}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:0 16px}
+.faq summary{
+  cursor:pointer;padding:15px 0;font-weight:600;font-size:15.5px;
+  list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1;font-weight:700}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 0 15px;color:var(--muted);font-size:14.5px;max-width:60em}
+
+/* --------------------------------------------------------------- финальный */
+.final{
+  margin:8px 0 0;padding:24px;border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(255,176,32,.14),rgba(255,176,32,.03));
+  border:1px solid rgba(255,176,32,.35);
+}
+.final h2{font-size:clamp(20px,5vw,28px)}
+.final p{margin-top:8px;color:var(--muted);font-size:15px}
+.final .phone{margin-top:14px;font-size:clamp(26px,7.6vw,36px)}
+
+/* -------------------------------------------------------------------- подвал */
+.ft{padding:26px 0 8px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.ft a{color:var(--muted)}
+.ft__row{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
+
+/* ------------------------------------------------------------ нижняя панель */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  display:flex;gap:10px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(11,18,32,.96);
+  backdrop-filter:saturate(1.4) blur(10px);
+  border-top:1px solid var(--line);
+}
+.sticky__text{display:none}
+.sticky .btn{flex:1;min-height:56px}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .sticky{display:none}
+}
+
+.visually-hidden{
+  position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;
+}
+
+/* ------------------------------------------------------------ предпочтения */
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media print{.sticky,.hd{display:none}body{padding:0;background:#fff;color:#000}}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="wrap hd__row">
+    <a class="logo" href="/">e-vak<b>.</b>ru<span>эвакуатор</span></a>
+    <span class="hd__badge">24/7</span>
+  </div>
+</header>
+
+<main>
+  <!-- 1. ПЕРВЫЙ ЭКРАН: кто мы, работаем ли сейчас, как позвонить -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero__kicker">Воронеж · область · М-4 «Дон»</p>
+      <h1>Эвакуатор в Воронеже и&nbsp;области — подача 15–20 минут</h1>
+      <p class="hero__lead"><b>Круглосуточно, без выходных.</b> Легковые, кроссоверы, внедорожники, микроавтобусы, коммерческий транспорт до 3,5 т.</p>
+
+      <a class="phone js-phone" href="tel:+79036531653" data-goal="phone_click_hero">8 (903) 653-16-53</a>
+
+      <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_hero">Позвонить</a>
+
+      <p class="hero__micro">Назовём точную цену за 30 секунд. По городу цена фиксированная — после погрузки не меняется.</p>
+
+      <!-- TODO: подтвердить рейтинг и число отзывов в Яндекс.Картах перед публикацией -->
+      <p class="hero__proof"><span class="stars">★★★★★</span><b>5,0</b> · 64 отзыва на Яндекс.Картах</p>
+    </div>
+  </section>
+
+  <!-- 2. ЦЕНЫ: снимает главный страх — накрутку после погрузки -->
+  <section class="section" id="prices">
+    <div class="wrap">
+      <h2 class="h2">Сколько стоит эвакуатор в Воронеже</h2>
+      <p class="sec__sub">Фиксированная цена по городу — после погрузки не меняется.</p>
+
+      <ul class="cards">
+        <li class="card"><span>Мототехника<small>Мотоциклы, лёгкие квадроциклы</small></span><b>3 000 ₽</b></li>
+        <li class="card"><span>Легковые и кроссоверы<small>Самый частый вызов</small></span><b>4 000 ₽</b></li>
+        <li class="card"><span>Внедорожники и минивэны<small>Полный привод, высокий клиренс</small></span><b>4 500 ₽</b></li>
+        <li class="card"><span>Микроавтобусы и коммерческие<small>Категория B, до 3,5 т</small></span><b>5 000 ₽</b></li>
+        <li class="card"><span>Спецтехника<small>До 4,5 т</small></span><b>5 500 ₽</b></li>
+      </ul>
+
+      <p class="note"><b>Межгород:</b> 60–90 ₽/км + 4 000 ₽ погрузка и разгрузка. Считаем до километра, точную сумму называем по телефону.<br>
+      <b>Дополнительно:</b> заблокированный руль или коробка — 1 500 ₽ · нет буксировочного крюка — 300 ₽ · заблокированное или отсутствующее колесо — 500 ₽ за штуку.</p>
+    </div>
+  </section>
+
+  <!-- 3. ЗОНЫ: ответ на «а вы туда поедете?» -->
+  <section class="section" id="zones">
+    <div class="wrap">
+      <h2 class="h2">Куда выезжаем</h2>
+      <p class="sec__sub">Воронеж, районы области, трасса М-4 «Дон» и межгород. Регулярно работаем в этих направлениях.</p>
+
+      <ul class="chips">
+        <li class="is-main">Воронеж</li>
+        <li>Рамонь</li>
+        <li>Новая Усмань</li>
+        <li>Каширское</li>
+        <li>Бобров</li>
+        <li>Лиски</li>
+        <li>Павловск</li>
+        <li>Верхний Мамон</li>
+        <li>Богучар</li>
+        <li>Нововоронеж</li>
+        <li>Борисоглебск</li>
+        <li class="is-main">М-4 «Дон»</li>
+        <li>Межгород</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. ПРОЦЕСС: понятная последовательность успокаивает -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <h2 class="h2">Как вызвать эвакуатор</h2>
+      <ol class="steps">
+        <li><div><b>Звоните</b><span>Круглосуточно, отвечаем сразу — не автоответчик.</span></div></li>
+        <li><div><b>Назовите адрес и машину</b><span>Марка, тип и что случилось: не заводится, ДТП, заблокирован руль.</span></div></li>
+        <li><div><b>Получите цену и время</b><span>Точную сумму и время подачи — за 30 секунд разговора.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. FAQ: возражения, которые иначе уходят в Google -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <h2 class="h2">Частые вопросы</h2>
+      <div class="faq">
+        <details>
+          <summary>Сколько ждать эвакуатор?</summary>
+          <p>По Воронежу — обычно 15–20 минут. По области и на М-4 время зависит от точки: диспетчер назовёт его сразу по телефону, до того как вы согласитесь.</p>
+        </details>
+        <details>
+          <summary>Работаете ночью и в праздники?</summary>
+          <p>Да, круглосуточно и без выходных, включая ночь и праздники. Цена ночью та же, что днём.</p>
+        </details>
+        <details>
+          <summary>Руль или коробка заблокированы — что делать?</summary>
+          <p>Скажите об этом сразу при звонке. Подберём технику и способ погрузки. Доплата за заблокированный руль или коробку — 1 500 ₽, называем её до выезда.</p>
+        </details>
+        <details>
+          <summary>Берёте машины после ДТП?</summary>
+          <p>Да. Погрузим автомобиль с повреждённым кузовом, без колёс или с заблокированными колёсами. Если колёс нет — 500 ₽ за штуку, если потерян буксировочный крюк — 300 ₽.</p>
+        </details>
+        <details>
+          <summary>Как считается межгород?</summary>
+          <p>60–90 ₽ за километр в зависимости от типа машины плюс 4 000 ₽ за погрузку и разгрузку. Расстояние считаем по километражу, итог называем до выезда — без сюрпризов на выгрузке.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ПОВТОРНЫЙ ЗВОНОК: для тех, кто дочитал и сомневается -->
+  <section class="section">
+    <div class="wrap">
+      <div class="final">
+        <h2>Не нашли свой район?</h2>
+        <p>Позвоните — сориентируем за 30 секунд: едем ли, сколько ждать и сколько стоит.</p>
+        <a class="phone js-phone" href="tel:+79036531653" data-goal="phone_click_final">8 (903) 653-16-53</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap ft__row">
+    <span>© 2026 e-vak.ru · Воронеж и область · М-4 «Дон» · круглосуточно</span>
+    <span><a href="/price/">Цены</a> · <a href="/contacts/">Контакты</a> · <a href="/about/">О компании</a></span>
+  </div>
+</footer>
+
+<!-- Нижняя панель: всегда в зоне большого пальца, не перекрывает контент -->
+<div class="sticky" role="region" aria-label="Быстрый звонок">
+  <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_sticky">
+    <span aria-hidden="true">📞</span> Позвонить
+    <span class="visually-hidden">8 (903) 653-16-53</span>
+  </a>
+</div>
+
+<script>
+/* Цели Метрики: имя цели должно существовать в счётчике 93417048.
+   Существующие: phone_click, phone_click_footer, mobile_menu_click.
+   Новые (создать в Метрике): phone_click_hero, phone_click_final, phone_click_sticky. */
+(function () {
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="tel:"]');
+    if (!link || typeof window.ym !== 'function') return;
+    var goal = link.getAttribute('data-goal') || 'phone_click';
+    try { window.ym(93417048, 'reachGoal', goal); } catch (_) {}
+  });
+})();
+</script>
+</body>
+</html>
