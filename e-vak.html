@@ -6,7 +6,7 @@
 <script type="text/javascript">(function(window,document,n,project_ids){window.GudokData=n;if(typeof project_ids !== "object"){project_ids = [project_ids]};window[n] = {};window[n]["projects"]=project_ids;config_load(project_ids.join(','));function config_load(cId){var a=document.getElementsByTagName("script")[0],s=document.createElement("script"),i=function(){a.parentNode.insertBefore(s,a)},cMrs='';s.async=true;if(document.location.search&&document.location.search.indexOf('?gudok_check=')===0)cMrs+=document.location.search.replace('?','&');s.src="//mod.gudok.tel/script.js?sid="+cId+cMrs;if(window.opera == "[object Opera]"){document.addEventListener("DOMContentLoaded", i, false)}else{i()}}})(window, document, "gd", "77of7udlf3");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B1220">
-<title>Эвакуатор в Воронеже — подача 15–20 минут, круглосуточно</title>
+<title>Эвакуатор в Воронеже — быстрая подача, круглосуточно</title>
 <meta name="description" content="Круглосуточный эвакуатор в Воронеже и области, на М-4 «Дон». Фиксированная цена по городу — от 3 000 ₽. Позвоните: 8 (903) 653-16-53.">
 <style>
 /* ------------------------------------------------------------------ токены */
@@ -88,8 +88,8 @@ p{margin:0}
 
 .btn{
   display:flex;align-items:center;justify-content:center;gap:10px;
-  min-height:56px;padding:14px 22px;border-radius:14px;
-  font-size:18px;font-weight:800;text-decoration:none;letter-spacing:.01em;
+  min-height:56px;padding:14px 16px;border-radius:14px;
+  font-size:clamp(15px,4.5vw,18px);font-weight:800;text-decoration:none;letter-spacing:.01em;
   transition:transform .06s ease,background .15s ease;
 }
 .btn--call{margin-top:14px;width:100%;background:var(--accent);color:#0B1220;box-shadow:var(--shadow)}
@@ -180,6 +180,9 @@ p{margin:0}
 }
 .sticky__text{display:none}
 .sticky .btn{flex:1;min-height:56px}
+@media (max-width:380px){
+  .sticky .btn [aria-hidden]{display:none}
+}
 @media (min-width:900px){
   body{padding-bottom:0}
   .sticky{display:none}
@@ -213,7 +216,7 @@ p{margin:0}
 
 <header class="hd">
   <div class="wrap hd__row">
-    <a class="logo" href="/">e-vak<b>.</b>ru<span>эвакуатор</span></a>
+    <a class="logo" href="https://e-vak.ru/">e-vak<b>.</b>ru<span>эвакуатор</span></a>
     <span class="hd__badge">24/7</span>
   </div>
 </header>
@@ -223,14 +226,14 @@ p{margin:0}
   <section class="hero">
     <div class="wrap">
       <p class="hero__kicker">Воронеж · область · М-4 «Дон»</p>
-      <h1>Эвакуатор в Воронеже и&nbsp;области — подача 15–20 минут</h1>
+      <h1>Эвакуатор в Воронеже и&nbsp;области. Быстрая подача</h1>
       <p class="hero__lead"><b>Круглосуточно, без выходных.</b> Легковые, кроссоверы, внедорожники, микроавтобусы, коммерческий транспорт до 3,5 т.</p>
 
       <a class="phone js-phone" href="tel:+79036531653" data-goal="phone_click_hero">8 (903) 653-16-53</a>
 
-      <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_hero">Позвонить</a>
+      <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_hero">Звони — скажем точную цену</a>
 
-      <p class="hero__micro">Назовём точную цену за 30 секунд. По городу цена фиксированная — после погрузки не меняется.</p>
+      <p class="hero__micro">Цена по городу фиксированная — после погрузки не меняется. Без скрытых доплат.</p>
 
       <!-- TODO: подтвердить рейтинг и число отзывов в Яндекс.Картах перед публикацией -->
       <p class="hero__proof"><span class="stars">★★★★★</span><b>5,0</b> · 64 отзыва на Яндекс.Картах</p>
@@ -336,14 +339,14 @@ p{margin:0}
 <footer class="ft">
   <div class="wrap ft__row">
     <span>© 2026 e-vak.ru · Воронеж и область · М-4 «Дон» · круглосуточно</span>
-    <span><a href="/price/">Цены</a> · <a href="/contacts/">Контакты</a> · <a href="/about/">О компании</a></span>
+    <span><a href="https://e-vak.ru/price/">Цены</a> · <a href="https://e-vak.ru/contacts/">Контакты</a> · <a href="https://e-vak.ru/about/">О компании</a></span>
   </div>
 </footer>
 
 <!-- Нижняя панель: всегда в зоне большого пальца, не перекрывает контент -->
 <div class="sticky" role="region" aria-label="Быстрый звонок">
   <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_sticky">
-    <span aria-hidden="true">📞</span> Позвонить
+    <span aria-hidden="true">📞</span> Звони — скажем точную цену
     <span class="visually-hidden">8 (903) 653-16-53</span>
   </a>
 </div>
@@ -360,6 +363,63 @@ p{margin:0}
     var goal = link.getAttribute('data-goal') || 'phone_click';
     try { window.ym(METRIKA_ID, 'reachGoal', goal); } catch (_) {}
   });
+})();
+</script>
+
+<!-- Подмена географии по ?city= (36 направлений; падеж зашит в phrase) -->
+<script>
+(function () {
+  /* phrase — то, что идёт после слова «Эвакуатор»: «в Богучаре», «на трассе М-4 Дон» */
+  var MAP = {
+    'boguchar': { phrase: 'в Богучаре', kicker: 'БОГУЧАР' },
+    'pavlovsk': { phrase: 'в Павловске', kicker: 'ПАВЛОВСК' },
+    'borisoglebsk': { phrase: 'в Борисоглебске', kicker: 'БОРИСОГЛЕБСК' },
+    'liski': { phrase: 'в Лисках', kicker: 'ЛИСКИ' },
+    'semiluki': { phrase: 'в Семилуках', kicker: 'СЕМИЛУКИ' },
+    'anna': { phrase: 'в Анне', kicker: 'АННА' },
+    'bobrov': { phrase: 'в Боброве', kicker: 'БОБРОВ' },
+    'verhniy-mamon': { phrase: 'в Верхнем Мамоне', kicker: 'ВЕРХНИЙ МАМОН' },
+    'kashirskoe': { phrase: 'в Каширском', kicker: 'КАШИРСКОЕ' },
+    'novaya-usman': { phrase: 'в Новой Усмани', kicker: 'НОВАЯ УСМАНЬ' },
+    'novovoronezh': { phrase: 'в Нововоронеже', kicker: 'НОВОВОРОНЕЖ' },
+    'ramon': { phrase: 'в Рамони', kicker: 'РАМОНЬ' },
+    'rossosh': { phrase: 'в Россоши', kicker: 'РОССОШЬ' },
+    'talovaya': { phrase: 'в Таловой', kicker: 'ТАЛОВАЯ' },
+    'buturlinovka': { phrase: 'в Бутурлиновке', kicker: 'БУТУРЛИНОВКА' },
+    'soldatskoe': { phrase: 'в Солдатском', kicker: 'СОЛДАТСКОЕ' },
+    'chertkovo': { phrase: 'в Чертково', kicker: 'ЧЕРТКОВО' },
+    'hlevnoe': { phrase: 'в Хлевном', kicker: 'ХЛЕВНОЕ' },
+    'kantemirovka': { phrase: 'в Кантемировке', kicker: 'КАНТЕМИРОВКА' },
+    'repevka': { phrase: 'в Репьевке', kicker: 'РЕПЬЕВКА' },
+    'gremyache': { phrase: 'в Гремячье', kicker: 'ГРЕМЯЧЬЕ' },
+    'yamnoe': { phrase: 'в Ямном', kicker: 'ЯМНОЕ' },
+    'shilovo': { phrase: 'в Шилово', kicker: 'ШИЛОВО' },
+    'strelitsa': { phrase: 'в Стрелице', kicker: 'СТРЕЛИЦА' },
+    'teplichnoe': { phrase: 'в Тепличном', kicker: 'ТЕПЛИЧНОЕ' },
+    'kamenka': { phrase: 'в Каменке', kicker: 'КАМЕНКА' },
+    'novonikolaevskiy': { phrase: 'в Новониколаевском', kicker: 'НОВОНИКОЛАЕВСКИЙ' },
+    'petropavlovka': { phrase: 'в Петропавловке', kicker: 'ПЕТРОПАВЛОВКА' },
+    'ostrogozhsk': { phrase: 'в Острогожске', kicker: 'ОСТРОГОЖСК' },
+    'lesovo': { phrase: 'в Лосево', kicker: 'ЛОСЕВО' },
+    'povorino': { phrase: 'в Поворино', kicker: 'ПОВОРИНО' },
+    'kalach': { phrase: 'в Калаче', kicker: 'КАЛАЧ' },
+    'davydovka': { phrase: 'в Давыдовке', kicker: 'ДАВЫДОВКА' },
+    'novohopersk': { phrase: 'в Новохоперске', kicker: 'НОВОХОПЕРСК' },
+    'olhovatka': { phrase: 'в Ольховатке', kicker: 'ОЛЬХОВАТКА' },
+    'm4': { phrase: 'на трассе М-4 Дон', kicker: 'ТРАССА М-4 «ДОН»' },
+  };
+  var slug = '';
+  try { slug = (new URLSearchParams(location.search).get('city') || '').toLowerCase(); } catch (e) {}
+  var c = MAP[slug];
+  if (!c) return;
+
+  var h1 = document.querySelector('.hero h1');
+  if (h1) h1.textContent = 'Эвакуатор ' + c.phrase + ' — быстрая подача';
+
+  var kicker = document.querySelector('.hero__kicker');
+  if (kicker) kicker.textContent = c.kicker;
+
+  document.title = 'Эвакуатор ' + c.phrase + ' — быстрая подача, круглосуточно';
 })();
 </script>
 </body>
