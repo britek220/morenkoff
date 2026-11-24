@@ -1,58 +1,86 @@
-// metrika-lazy.js — Яндекс.Метрика с ленивой загрузкой
+// metrika-lazy.js — Яндекс.Метрика с ленивой загрузкой (2 счётчика)
 (function() {
-  // Проверяем, загружена ли уже Метрика
-  if (window.ym) return;
+  if (window.__metrikaLazyLoaded) return;
+  window.__metrikaLazyLoaded = true;
 
-  // Функция загрузки Метрики
+  // ===== СПИСОК СЧЁТЧИКОВ =====
+  const COUNTERS = [
+    {
+      id: 108365516, // счётчик №1
+      opts: {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true
+      }
+    },
+    {
+      id: 114379424, // счётчик №2
+      opts: {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true
+      }
+    }
+  ];
+
+  let loaded = false;
+
   function loadMetrika() {
-    if (document.querySelector('script[src*="mc.yandex.ru"]')) return;
-    
-    (function(m,e,t,r,i,k,a){
-      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108365516', 'ym');
+    if (loaded) return;
+    loaded = true;
 
-    ym(108365516, 'init', {
-      ssr:true, 
-      webvisor:true, 
-      clickmap:true, 
-      ecommerce:"dataLayer", 
-      referrer: document.referrer, 
-      url: location.href, 
-      accurateTrackBounce:true, 
-      trackLinks:true
+    // Загружаем tag.js один раз (он общий для всех счётчиков)
+    if (!document.querySelector('script[src*="mc.yandex.ru/metrika/tag.js"]')) {
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0];
+        k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    }
+
+    // Инициализируем каждый счётчик
+    COUNTERS.forEach(function(c) {
+      ym(c.id, 'init', c.opts);
     });
-
-    // Отправляем hit сразу после загрузки
-    ym(108365516, 'reachGoal', 'page_view');
   }
 
-  // Загрузка при скролле (lazy)
-  let scrolled = false;
-  window.addEventListener('scroll', function() {
-    if (!scrolled && window.scrollY > 300) {
-      scrolled = true;
+  // 1) Lazy: при скролле > 300px
+  function onScroll() {
+    if (window.scrollY > 300) {
+      window.removeEventListener('scroll', onScroll);
       loadMetrika();
-      window.removeEventListener('scroll', arguments.callee);
     }
-  }, { passive: true });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-  // Fallback: загрузка через 5 сек или при клике
-  setTimeout(() => {
-    if (!scrolled) loadMetrika();
-  }, 5000);
+  // 2) Fallback: через 5 секунд
+  setTimeout(loadMetrika, 5000);
 
-  // Триггер по клику на любой интерактив (кнопки/links)
+  // 3) Триггер по клику на интерактив
   document.addEventListener('click', function(e) {
-    if (e.target.matches('a, button, [data-track]') && !scrolled) {
-      scrolled = true;
+    if (e.target.closest && e.target.closest('a, button, [data-track]')) {
       loadMetrika();
     }
   }, { passive: true });
 
-  // Noscript fallback
+  // 4) Noscript-fallback для обоих счётчиков
   if (!window.addEventListener) {
-    document.write('<img src="https://mc.yandex.ru/watch/108365516" style="position:absolute;left:-9999px;" alt="" />');
+    COUNTERS.forEach(function(c) {
+      document.write(
+        '<img src="https://mc.yandex.ru/watch/' + c.id +
+        '" style="position:absolute;left:-9999px;" alt="" />'
+      );
+    });
   }
 })();
