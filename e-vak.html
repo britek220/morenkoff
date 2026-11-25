@@ -235,7 +235,7 @@ p{margin:0}
     <div class="wrap">
       <p class="hero__kicker">Воронеж · область · М-4 «Дон»</p>
       <h1>Эвакуатор в Воронеже и&nbsp;области. Быстрая подача</h1>
-      <p class="hero__lead"><b>Круглосуточно, без выходных.</b> Легковые, кроссоверы, внедорожники, микроавтобусы, коммерческий транспорт до 3,5 т.</p>
+      <p class="hero__lead"><b>Круглосуточно, без выходных.</b> Легковые, кроссоверы, внедорожники, микроавтобусы, газели и спецтехника до 10 т.</p>
 
       <a class="phone js-phone" href="tel:+79036531653" data-goal="phone_click_hero">8 (903) 653-16-53</a>
 
@@ -247,6 +247,45 @@ p{margin:0}
       <p class="hero__proof"><span class="stars">★★★★★</span><b>5,0</b> · 64 отзыва на Яндекс.Картах</p>
     </div>
   </section>
+
+  <style>
+.ic { padding: 28px 0 8px; }
+.ic h2 { margin: 0 0 8px; }
+.ic__lead { opacity: .82; margin: 0 0 18px; font-size: 15px; }
+.ic__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; }
+.ic__row { background: rgba(255,255,255,.06); border-radius: 10px; padding: 12px 14px;
+           display: flex; flex-direction: column; gap: 2px; }
+.ic__row span { font-size: 20px; font-weight: 700; line-height: 1.1; }
+.ic__row b { font-size: 12px; font-weight: 400; opacity: .72; }
+.ic__dirs { opacity: .75; font-size: 13px; line-height: 1.65; margin: 0 0 18px; }
+.ic__note { font-size: 13px; opacity: .6; margin: 12px 0 0; }
+@media (min-width: 760px) { .ic__grid { grid-template-columns: repeat(4, 1fr); } }
+</style>
+
+<section class="ic" id="intercity">
+  <div class="wrap">
+    <h2>Перевозка авто в другой город</h2>
+    <p class="ic__lead">Из Воронежа в Москву, Краснодар, Ростов, Анапу и обратно. Работаем круглосуточно, доставим за сутки.</p>
+
+    <div class="ic__grid">
+      <div class="ic__row"><span>60–90 ₽</span><b>за километр</b></div>
+      <div class="ic__row"><span>4 000 ₽</span><b>погрузка и разгрузка</b></div>
+      <div class="ic__row"><span>1 сутки</span><b>срок доставки</b></div>
+      <div class="ic__row"><span>до 10 т</span><b>газели, тракторы, спецтехника</b></div>
+    </div>
+
+    <p class="ic__dirs">
+      Воронеж — Москва · Воронеж — Краснодар · Воронеж — Ростов-на-Дону · Воронеж — Анапа ·
+      Воронеж — Белгород · Воронеж — Волгоград · Воронеж — Санкт-Петербург
+    </p>
+
+    <a class="btn btn--call js-phone" href="tel:+79036531653" data-goal="phone_click_intercity">
+      Позвоните — рассчитаем маршрут
+    </a>
+
+    <p class="ic__note">Точную цену называем по телефону: считаем расстояние до километра, без доплат на месте.</p>
+  </div>
+</section>
 
   <!-- 2. ЦЕНЫ: снимает главный страх — накрутку после погрузки -->
   <section class="section" id="prices">
@@ -260,6 +299,7 @@ p{margin:0}
         <li class="card"><span>Внедорожники и минивэны<small>Полный привод, высокий клиренс</small></span><b>4 500 ₽</b></li>
         <li class="card"><span>Микроавтобусы и коммерческие<small>Категория B, до 3,5 т</small></span><b>5 000 ₽</b></li>
         <li class="card"><span>Спецтехника<small>До 4,5 т</small></span><b>5 500 ₽</b></li>
+        <li class="card"><span>Тяжёлая техника<small>Газели, тракторы, до 10 т</small></span><b>по запросу</b></li>
       </ul>
 
       <p class="note"><b>Межгород:</b> 60–90 ₽/км + 4 000 ₽ погрузка и разгрузка. Считаем до километра, точную сумму называем по телефону.<br>
@@ -374,60 +414,76 @@ p{margin:0}
 })();
 </script>
 
-<!-- Подмена географии по ?city= (36 направлений; падеж зашит в phrase) -->
 <script>
 (function () {
-  /* phrase — то, что идёт после слова «Эвакуатор»: «в Богучаре», «на трассе М-4 Дон» */
   var MAP = {
-    'boguchar': { phrase: 'в Богучаре', kicker: 'БОГУЧАР' },
-    'pavlovsk': { phrase: 'в Павловске', kicker: 'ПАВЛОВСК' },
-    'borisoglebsk': { phrase: 'в Борисоглебске', kicker: 'БОРИСОГЛЕБСК' },
-    'liski': { phrase: 'в Лисках', kicker: 'ЛИСКИ' },
-    'semiluki': { phrase: 'в Семилуках', kicker: 'СЕМИЛУКИ' },
-    'anna': { phrase: 'в Анне', kicker: 'АННА' },
-    'bobrov': { phrase: 'в Боброве', kicker: 'БОБРОВ' },
-    'verhniy-mamon': { phrase: 'в Верхнем Мамоне', kicker: 'ВЕРХНИЙ МАМОН' },
-    'kashirskoe': { phrase: 'в Каширском', kicker: 'КАШИРСКОЕ' },
-    'novaya-usman': { phrase: 'в Новой Усмани', kicker: 'НОВАЯ УСМАНЬ' },
-    'novovoronezh': { phrase: 'в Нововоронеже', kicker: 'НОВОВОРОНЕЖ' },
-    'ramon': { phrase: 'в Рамони', kicker: 'РАМОНЬ' },
-    'rossosh': { phrase: 'в Россоши', kicker: 'РОССОШЬ' },
-    'talovaya': { phrase: 'в Таловой', kicker: 'ТАЛОВАЯ' },
-    'buturlinovka': { phrase: 'в Бутурлиновке', kicker: 'БУТУРЛИНОВКА' },
-    'soldatskoe': { phrase: 'в Солдатском', kicker: 'СОЛДАТСКОЕ' },
-    'chertkovo': { phrase: 'в Чертково', kicker: 'ЧЕРТКОВО' },
-    'hlevnoe': { phrase: 'в Хлевном', kicker: 'ХЛЕВНОЕ' },
-    'kantemirovka': { phrase: 'в Кантемировке', kicker: 'КАНТЕМИРОВКА' },
-    'repevka': { phrase: 'в Репьевке', kicker: 'РЕПЬЕВКА' },
-    'gremyache': { phrase: 'в Гремячье', kicker: 'ГРЕМЯЧЬЕ' },
-    'yamnoe': { phrase: 'в Ямном', kicker: 'ЯМНОЕ' },
-    'shilovo': { phrase: 'в Шилово', kicker: 'ШИЛОВО' },
-    'strelitsa': { phrase: 'в Стрелице', kicker: 'СТРЕЛИЦА' },
-    'teplichnoe': { phrase: 'в Тепличном', kicker: 'ТЕПЛИЧНОЕ' },
-    'kamenka': { phrase: 'в Каменке', kicker: 'КАМЕНКА' },
-    'novonikolaevskiy': { phrase: 'в Новониколаевском', kicker: 'НОВОНИКОЛАЕВСКИЙ' },
-    'petropavlovka': { phrase: 'в Петропавловке', kicker: 'ПЕТРОПАВЛОВКА' },
-    'ostrogozhsk': { phrase: 'в Острогожске', kicker: 'ОСТРОГОЖСК' },
-    'lesovo': { phrase: 'в Лосево', kicker: 'ЛОСЕВО' },
-    'povorino': { phrase: 'в Поворино', kicker: 'ПОВОРИНО' },
-    'kalach': { phrase: 'в Калаче', kicker: 'КАЛАЧ' },
-    'davydovka': { phrase: 'в Давыдовке', kicker: 'ДАВЫДОВКА' },
-    'novohopersk': { phrase: 'в Новохоперске', kicker: 'НОВОХОПЕРСК' },
-    'olhovatka': { phrase: 'в Ольховатке', kicker: 'ОЛЬХОВАТКА' },
-    'm4': { phrase: 'на трассе М-4 Дон', kicker: 'ТРАССА М-4 «ДОН»' },
+    'boguchar': { where: 'в Богучаре', kicker: 'БОГУЧАР' },
+    'pavlovsk': { where: 'в Павловске', kicker: 'ПАВЛОВСК' },
+    'borisoglebsk': { where: 'в Борисоглебске', kicker: 'БОРИСОГЛЕБСК' },
+    'liski': { where: 'в Лисках', kicker: 'ЛИСКИ' },
+    'semiluki': { where: 'в Семилуках', kicker: 'СЕМИЛУКИ' },
+    'anna': { where: 'в Анне', kicker: 'АННА' },
+    'bobrov': { where: 'в Боброве', kicker: 'БОБРОВ' },
+    'verhniy-mamon': { where: 'в Верхнем Мамоне', kicker: 'ВЕРХНИЙ МАМОН' },
+    'kashirskoe': { where: 'в Каширском', kicker: 'КАШИРСКОЕ' },
+    'kolodeznyy': { where: 'в Колодезном', kicker: 'КОЛОДЕЗНЫЙ' },
+    'ikorets': { where: 'в Икорце', kicker: 'ИКОРЕЦ' },
+    'novaya-usman': { where: 'в Новой Усмани', kicker: 'НОВАЯ УСМАНЬ' },
+    'novovoronezh': { where: 'в Нововоронеже', kicker: 'НОВОВОРОНЕЖ' },
+    'ramon': { where: 'в Рамони', kicker: 'РАМОНЬ' },
+    'rossosh': { where: 'в Россоши', kicker: 'РОССОШЬ' },
+    'talovaya': { where: 'в Таловой', kicker: 'ТАЛОВАЯ' },
+    'buturlinovka': { where: 'в Бутурлиновке', kicker: 'БУТУРЛИНОВКА' },
+    'soldatskoe': { where: 'в Солдатском', kicker: 'СОЛДАТСКОЕ' },
+    'chertkovo': { where: 'в Чертково', kicker: 'ЧЕРТКОВО' },
+    'hlevnoe': { where: 'в Хлевном', kicker: 'ХЛЕВНОЕ' },
+    'kantemirovka': { where: 'в Кантемировке', kicker: 'КАНТЕМИРОВКА' },
+    'repevka': { where: 'в Репьевке', kicker: 'РЕПЬЕВКА' },
+    'gremyache': { where: 'в Гремячьем', kicker: 'ГРЕМЯЧЬЕ' },
+    'yamnoe': { where: 'в Ямном', kicker: 'ЯМНОЕ' },
+    'shilovo': { where: 'в Шилово', kicker: 'ШИЛОВО' },
+    'strelitsa': { where: 'в Стрелице', kicker: 'СТРЕЛИЦА' },
+    'teplichnoe': { where: 'в Тепличном', kicker: 'ТЕПЛИЧНОЕ' },
+    'kamenka': { where: 'в Каменке', kicker: 'КАМЕНКА' },
+    'novonikolaevskiy': { where: 'в Новониколаевском', kicker: 'НОВОНИКОЛАЕВСКИЙ' },
+    'petropavlovka': { where: 'в Петропавловке', kicker: 'ПЕТРОПАВЛОВКА' },
+    'ostrogozhsk': { where: 'в Острогожске', kicker: 'ОСТРОГОЖСК' },
+    'lesovo': { where: 'в Лосево', kicker: 'ЛОСЕВО' },
+    'povorino': { where: 'в Поворино', kicker: 'ПОВОРИНО' },
+    'kalach': { where: 'в Калаче', kicker: 'КАЛАЧ' },
+    'davydovka': { where: 'в Давыдовке', kicker: 'ДАВЫДОВКА' },
+    'novohopersk': { where: 'в Новохоперске', kicker: 'НОВОХОПЕРСК' },
+    'olhovatka': { where: 'в Ольховатке', kicker: 'ОЛЬХОВАТКА' },
+    'm4': { where: 'на трассе М-4 Дон', kicker: 'ТРАССА М-4 «ДОН»' },
   };
-  var slug = '';
-  try { slug = (new URLSearchParams(location.search).get('city') || '').toLowerCase(); } catch (e) {}
-  var c = MAP[slug];
-  if (!c) return;
+
+  var params;
+  try { params = new URLSearchParams(location.search); } catch (e) { params = null; }
+  var slug = params ? (params.get('city') || '').toLowerCase() : '';
+  var mode = params ? (params.get('dir') || '').toLowerCase() : '';
 
   var h1 = document.querySelector('.hero h1');
-  if (h1) h1.textContent = 'Эвакуатор ' + c.phrase + ' — быстрая подача';
-
   var kicker = document.querySelector('.hero__kicker');
-  if (kicker) kicker.textContent = c.kicker;
 
-  document.title = 'Эвакуатор ' + c.phrase + ' — быстрая подача, круглосуточно';
+  // --- режим «межгород»: свои заголовок и блок ---
+  if (mode === 'intercity') {
+    if (h1) h1.textContent = 'Перевозка авто в другой город — от 60 ₽/км';
+    if (kicker) kicker.textContent = 'МЕЖГОРОД · ИЗ ВОРОНЕЖА';
+    document.title = 'Перевозка авто в другой город из Воронежа — от 60 ₽/км';
+    var ic = document.getElementById('intercity');
+    var hero = document.querySelector('.hero');
+    if (ic && hero && hero.nextSibling !== ic) {
+      hero.parentNode.insertBefore(ic, hero.nextSibling);
+    }
+    return;
+  }
+
+  // --- режим «город» ---
+  var c = MAP[slug];
+  if (!c) return;
+  if (h1) h1.textContent = 'Эвакуатор ' + c.where + ' — быстрая подача';
+  if (kicker) kicker.textContent = c.kicker;
+  document.title = 'Эвакуатор ' + c.where + ' — быстрая подача, круглосуточно';
 })();
 </script>
 </body>
